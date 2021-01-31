@@ -9,6 +9,7 @@ export class HttpInterceptorService implements HttpInterceptor {
   constructor(private dataService:DataService) {}
 
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
+    console.log(request.url);
     if(!request.url.includes('login')) {
       request = request.clone({
         setHeaders: {
@@ -20,9 +21,9 @@ export class HttpInterceptorService implements HttpInterceptor {
       tap(
         (event) => {
           if (event instanceof HttpResponse) {
-            if(event.url.includes('login')){
-              localStorage.setItem("userDetails", event.body );
-            }
+            // if(event.url.includes('login')){
+            //   localStorage.setItem("userDetails", event.body );
+            // }
           }
         }, 
         (err: any) => {

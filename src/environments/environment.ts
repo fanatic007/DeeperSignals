@@ -4,10 +4,10 @@
 
 export const environment = {
   production: false,
-  loginEndPointURL : '/api/userassessments',
-  assessmentsEndPointURL : '/api/userassessments',
-  graphEndPointURL : '/api/userassessment/graph',
-  usersEndPointURL : '/api/users'
+  loginEndPointURL : 'https://ds-test-api.herokuapp.com/api/login',
+  assessmentsEndPointURL : 'https://ds-test-api.herokuapp.com/api/userassessments',
+  graphEndPointURL : 'https://ds-test-api.herokuapp.com/api/userassessment/graph',
+  usersEndPointURL : 'https://ds-test-api.herokuapp.com/api/users'
 };
 /*
  * For easier debugging in development mode, you can import the following file
