@@ -66,7 +66,9 @@ export class ReportComponent implements OnInit {
     .call(d3.axisBottom(x))
     .selectAll("text")
     .attr("transform", "translate(-10,0)rotate(-45)")
-    .style("text-anchor", "end");
+    .style("text-anchor", "end")
+    .style("font-family","Montserrat-Regular")
+    .style("font-size","1.6em");
 
     // Create the Y-axis band scale
     const y = d3.scaleLinear()
@@ -75,7 +77,9 @@ export class ReportComponent implements OnInit {
 
     // Draw the Y-axis on the DOM
     this.svg.append("g")
-    .call(d3.axisLeft(y));
+    .call(d3.axisLeft(y))    
+    .style("font-family","Montserrat-Regular")
+    .style("font-size","1em");
 
     // Create and fill the bars
     this.svg.selectAll("bars")
@@ -86,6 +90,7 @@ export class ReportComponent implements OnInit {
     .attr("y", d => y(d.score))
     .attr("width", x.bandwidth())
     .attr("height", (d) => this.height - y(d.score))
-    .attr("fill", "#d04a35");
+    .attr("fill", "#5E56E7")
+    .text(function(d) { return d.Score; });;
   }
 }
