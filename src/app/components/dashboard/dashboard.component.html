@@ -1,1 +1,17 @@
-<p>dashboard works!</p>
+<div>
+  <table>
+    <thead></thead>
+      <td>Id</td>
+      <td>Name</td>
+      <td>Users Resolved</td>
+      <td>Active</td>
+    <tbody>
+      <tr *ngFor="let assessment of assessments">
+        <td><a [routerLink]="['/dashboard',assessment.id]">{{assessment.id}}</a></td>
+        <td>{{assessment.name}}</td>
+        <td>{{assessment.users_resolved}}</td>
+        <td>{{assessment.active?"YES":"NO"}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

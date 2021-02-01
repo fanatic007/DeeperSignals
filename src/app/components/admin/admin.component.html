@@ -1,1 +1,20 @@
-<p>admin works!</p>
+<div>
+  <button (click)="getCSV()">Download CSV</button>
+  <table>
+    <thead></thead>
+      <th></th>
+      <th>First Name</th>
+      <th>Last Name</th>
+      <th>Email</th>
+      <th>Groups</th>
+    <tbody>
+      <tr *ngFor="let user of users">
+        <td><input id="{{user.first_name}}" type="checkbox" [(ngModel)]="user.selected"></td>
+        <td><label for="{{user.first_name}}">{{user.first_name}}</label></td>
+        <td>{{user.last_name}}</td>
+        <td>{{user.email}}</td>
+        <td><span *ngFor="let group of user.groups">{{group}} </span> </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

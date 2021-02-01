@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { NavigationEnd, Router } from '@angular/router';
 
 @Component({
   selector: 'app-navbar',
@@ -8,9 +8,18 @@ import { Router } from '@angular/router';
 })
 export class NavbarComponent implements OnInit {
   userDetails;
-  constructor(private router: Router) { }
+  constructor(private router: Router) { 
+    router.events.subscribe((val) => {
+      if(val instanceof NavigationEnd){
+        this.userDetails = JSON.parse(localStorage.getItem('userDetails'));
+      }
+    });
+  }
 
   ngOnInit(): void {
-    // this.userDetails = localStorage.getItem('userDetails');
+  }
+
+  logout(){
+    localStorage.removeItem("userDetails");
   }
 }

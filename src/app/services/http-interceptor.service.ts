@@ -9,11 +9,11 @@ export class HttpInterceptorService implements HttpInterceptor {
   constructor(private dataService:DataService) {}
 
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-    console.log(request.url);
-    if(!request.url.includes('login')) {
+    let userDetails =  JSON.parse(localStorage.getItem('userDetails'));
+    if(!request.url.includes('login')) {  
       request = request.clone({
         setHeaders: {
-          "X-Token" : localStorage.getItem('userDetails')['token']
+          "X-Token" : userDetails['token']
         }
       });
     }
