@@ -25,7 +25,7 @@ export class DataService {
   getGraph(id):Observable<any>{
     let params = new HttpParams();
     params = params.append('id',id);
-    return this.httpclient.get(this.graphEndPointURL ,{ observe:'response' });
+    return this.httpclient.get(this.graphEndPointURL ,{ params:params, observe:'response' });
   }
 
   getUsers():Observable<any>{
